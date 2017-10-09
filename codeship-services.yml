@@ -1,0 +1,6 @@
+demo:
+  build:
+    image: test-pro
+    dockerfile_path: Dockerfile
+    args:
+      PASSING_THROUGH_BUILD_ARG: "WHYYYY"
