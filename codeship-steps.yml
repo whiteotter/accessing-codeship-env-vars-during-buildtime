@@ -1,7 +1,9 @@
-- name: trigger run of storage
+- name: store env vars
   service: store_codeship_env_vars
   command: ruby store_codeship_env_vars_to_file.rb
-
-- name: confirm storage on volume
+- name: cat from storage
+  service: store_codeship_env_vars
+  command: cat /tmp/codeship_env_vars.txt
+- name: cat from other
   service: access_codeship_env_vars
-  command: cat codeship_env_vars.txt
+  command: cat /tmp/codeship_env_vars.txt
