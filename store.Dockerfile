@@ -1,5 +1,6 @@
 FROM ruby:2.2.1
 
-WORKDIR tmp
+RUN mkdir -p /tmp
+WORKDIR /tmp
 
-ADD store_codeship_env_vars_to_file.rb .
+COPY store_codeship_env_vars_to_file.rb ./

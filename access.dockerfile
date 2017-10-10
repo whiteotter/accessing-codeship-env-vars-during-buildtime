@@ -1,2 +1,4 @@
 FROM ruby:2.2.1
-WORKDIR tmp
+
+RUN mkdir -p /tmp
+WORKDIR /tmp
