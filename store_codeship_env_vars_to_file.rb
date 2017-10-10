@@ -12,10 +12,6 @@ keys = %w{
   CI_REPO_NAME
   CI_STRING_TIME
   CI_TIMESTAMP
-  DECLARED_ENV_FROM_YML
-  DECLARED_ENV_FROM_DOCKERFILE
-  PASSING_THROUGH_BUILD_ARG_ENV
-  NEW_VAR
 }
 
 File.open('/tmp/codeship_env_vars.txt', 'w') do |f|
