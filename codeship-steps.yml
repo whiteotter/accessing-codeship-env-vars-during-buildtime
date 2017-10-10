@@ -1,9 +1,12 @@
 - name: store env vars
   service: store_codeship_env_vars
-  command: ruby store_codeship_env_vars_to_file.rb
+  command: ruby store_codeship_env_vars_to_yaml.rb
 - name: cat from storage
   service: store_codeship_env_vars
-  command: cat /tmp/codeship_env_vars.txt
+  command: cat /tmp/codeship_env_vars.yml
 - name: cat from other
   service: access_codeship_env_vars
-  command: cat /tmp/codeship_env_vars.txt
+  command: cat /tmp/codeship_env_vars.yml
+- name: check for file written during buildtime using codeship env var
+  service: access_codeship_env_vars
+  command: cat /app/ci_timestamp.txt
