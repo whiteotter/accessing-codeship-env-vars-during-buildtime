@@ -1,14 +1,7 @@
-- service: demo
-  command: cat commit_id.txt
+- name: trigger run of storage
+  service: store_codeship_env_vars
+  command: ruby store_codeship_env_vars_to_file.rb
 
-- name: print all default environmental variables
-  service: demo
-  command: ruby print_env_vars.rb
-#
-# - name: print from bash -c
-#   service: demo
-#   command: /bin/bash -c 'echo $CI_BRANCH'
-#
-# - name: print commit id passed to build argument
-#   service: demo
-#   command: /bin/bash -c 'cat commit_id.txt'
+- name: confirm storage on volume
+  service: access_codeship_env_vars
+  command: cat codeship_env_vars.txt

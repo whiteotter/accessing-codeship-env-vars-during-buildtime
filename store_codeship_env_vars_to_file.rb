@@ -18,7 +18,9 @@ keys = %w{
   NEW_VAR
 }
 
-result = keys.each do |k|
-  val = ENV[k]
-  puts "#{k}: #{val}"
+File.open('codeship_env_vars.txt', 'w') do |f|
+  keys.each do |k|
+    val = ENV[k]
+    f.puts "#{k}: #{val}"
+  end
 end

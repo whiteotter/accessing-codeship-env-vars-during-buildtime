@@ -1,6 +1,13 @@
-demo:
+store_codeship_env_vars:
   build:
-    image: test-pro
-    dockerfile_path: Dockerfile
-    args:
-      PASSING_THROUGH_BUILD_ARG: "WHYYYY"
+    image: store_codeship_env_vars
+    dockerfile: store.Dockerfile
+    volumes:
+      - ./tmp:/tmp
+
+access_codeship_env_vars:
+  build:
+    image: access_codeship_env_vars
+    dockerfile: access.Dockerfile
+  volumes_from:
+    - store_codeship_env_vars
