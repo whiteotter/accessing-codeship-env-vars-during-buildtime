@@ -8,5 +8,5 @@ access_codeship_env_vars:
   build:
     image: access_codeship_env_vars
     dockerfile: access.Dockerfile
-  volumes:
-    - ./tmp:/tmp
+  volumes_from:
+    - store_codeship_env_vars
